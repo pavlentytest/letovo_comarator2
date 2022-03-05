@@ -17,7 +17,7 @@ public class Main {
 
         Person[] persons = new Person[3];
         persons[0] = new Person("Ivan",15);
-        persons[1] = new Person("Petr",14);
+        persons[1] = new Person("Alex",15);
         persons[2] = new Person("Olga",16);
 
         /*Comparator<Person> rule = new Comparator<Person>() {
@@ -54,10 +54,16 @@ class Person implements Comparable<Person> {
     // строковое
     // числовое
     // Сортируем по числовому полю, а если они равны, то сортируем по строке
-    
+
     @Override
     public int compareTo(Person o) {
-        return this.name.compareTo(o.name);
+        if(this.age != o.age) {
+            return this.age-o.age;
+        } else {
+            return this.name.compareTo(o.name);
+        }
+
+       // return this.name.compareTo(o.name);
         //return this.age-o.age;
     }
 }
